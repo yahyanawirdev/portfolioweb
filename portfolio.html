@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="180x180" href="/portfolioweb/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="/portfolioweb/favicon.ico" />
+  <link rel="shortcut icon" href="/portfolioweb/favicon.ico" />
+  <link rel="apple-touch-icon" href="/portfolioweb/apple-touch-icon.png" />
+  <title>Portfolio | Muhammad Yahya Nwr</title>
+
+  <meta name="description" content="Portfolio of MUH Yahya NWR - Architect, 3D Artist, and Applied AI Engineer.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Viga&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Styles -->
+  <script type="module" crossorigin src="/portfolioweb/assets/main-BTbLZXTM.js"></script>
+  <link rel="stylesheet" crossorigin href="/portfolioweb/assets/main-4XvQo6cH.css">
+</head>
+
+<body>
+
+  <!-- Left Floating Navbar -->
+  <nav class="floating-nav" id="sidebar-nav">
+    <button class="nav-btn" aria-label="Home" data-tooltip="Home" data-link="/index.html">
+      <i class="fas fa-home"></i>
+    </button>
+    <button class="nav-btn active-nav" aria-label="Portfolio" data-tooltip="Portfolio" data-link="/portfolio.html">
+      <i class="fas fa-images"></i>
+    </button>
+    <button class="nav-btn" aria-label="Resume" data-tooltip="Resume" data-link="/resume.html">
+      <i class="fas fa-file-alt"></i>
+    </button>
+
+    <button class="nav-btn" aria-label="Blog" data-tooltip="Blog" data-link="/blog.html">
+      <i class="fas fa-pen"></i>
+    </button>
+
+    <div class="nav-divider"></div>
+
+    <button class="nav-btn social-btn youtube" aria-label="YouTube" data-tooltip="YouTube"
+      onclick="window.open('https://www.youtube.com/@myn3dlab', '_blank')">
+      <i class="fab fa-youtube"></i>
+    </button>
+    <button class="nav-btn social-btn linkedin" aria-label="LinkedIn" data-tooltip="LinkedIn"
+      onclick="window.open('https://www.linkedin.com/in/myhynwr', '_blank')">
+      <i class="fab fa-linkedin-in"></i>
+    </button>
+    <button class="nav-btn social-btn github" aria-label="GitHub" data-tooltip="GitHub"
+      onclick="window.open('https://github.com/yahyanawirdev', '_blank')">
+      <i class="fab fa-github"></i>
+    </button>
+  </nav>
+
+  <!-- Main Content (Portfolio Page) -->
+  <main class="portfolio-card scrollable-content resume-card">
+    <div class="portfolio-container">
+
+      <!-- Hero Section -->
+      <header class="portfolio-hero reveal-anim">
+        <h1 class="portfolio-title">Bridging <span class="highlight-olive">Visuals</span> and <span
+            class="highlight-blue">Intelligence.</span></h1>
+        <p class="portfolio-subtitle">I combine architectural visualization with AI engineering<br>to build
+          digital experiences that are both beautiful and intelligent.</p>
+      </header>
+
+      <!-- Filters Section -->
+      <section class="portfolio-filters-section reveal-anim delay-1">
+        <div class="filters-header-row">
+          <h3 class="section-title-inline">Featured Projects</h3>
+          <div class="filter-divider-line"></div>
+          <div class="portfolio-filters-inline">
+            <button class="filter-btn active-filter" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="3d">3D Visualization</button>
+            <button class="filter-btn" data-filter="ai">AI Engineering</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3D Architectural Visualization Projects -->
+      <section class="portfolio-section reveal-anim delay-1" id="section-3d">
+        <div class="section-header-3d">
+          <span class="dot-olive"></span>
+          <h4>3D Architectural Visualization</h4>
+        </div>
+
+        <div class="portfolio-grid-3d">
+          <!-- 3D Project 1 -->
+          <div class="project-card" data-link="/portfolio/sobha-siniya-island.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_1_view1.webp" alt="Sobha Siniya Island" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Sobha Siniya Island</h5>
+              <div class="project-footer">
+                <p class="project-meta">Dubai, UAE | 2026</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 2 -->
+          <div class="project-card" data-link="/portfolio/sobha-central.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_2_view1.webp" alt="Sobha Central" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Sobha Central</h5>
+              <div class="project-footer">
+                <p class="project-meta">Dubai, UAE | 2026</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 3 -->
+          <div class="project-card" data-link="/portfolio/sobha-hartland-2.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_3_view1.webp" alt="Sobha Hartland 2" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Sobha Hartland 2</h5>
+              <div class="project-footer">
+                <p class="project-meta">Dubai, UAE | 2025</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 4 -->
+          <div class="project-card" data-link="/portfolio/sobha-sanctuary-1.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_4_view1.webp" alt="Sobha sanctuary (1)" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Sobha sanctuary (1)</h5>
+              <div class="project-footer">
+                <p class="project-meta">Dubai, UAE | 2025</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 5 -->
+          <div class="project-card" data-link="/portfolio/sobha-sanctuary-2.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_5_view1.webp" alt="Sobha sanctuary (2)" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Sobha sanctuary (2)</h5>
+              <div class="project-footer">
+                <p class="project-meta">Dubai, UAE | 2025</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 6 -->
+          <div class="project-card" data-link="/portfolio/siniya-marina-1.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_6_view2.webp" alt="Siniya Marina (1)" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Siniya Marina (1)</h5>
+              <div class="project-footer">
+                <p class="project-meta">Dubai, UAE | 2025</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 7 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/siniya-marina-2.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_7_view1.webp" alt="Siniya Marina (2)" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Siniya Marina (2)</h5>
+              <div class="project-footer">
+                <p class="project-meta">Dubai, UAE | 2026</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 8 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/district-mall-ksa.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_8_view1.webp" alt="District Mall, KSA" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>District Mall, KSA</h5>
+              <div class="project-footer">
+                <p class="project-meta">KSA | 2024</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 9 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/gayathi-community-center.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_9_view1.webp" alt="Gayathi Community Center" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Gayathi Community Center</h5>
+              <div class="project-footer">
+                <p class="project-meta">Abu Dhabi, UAE | 2024</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 10 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/ramhan-island-villa.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_10_view1.webp" alt="Ramhan Island Villa" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Ramhan Island Villa</h5>
+              <div class="project-footer">
+                <p class="project-meta">Abu Dhabi, UAE | 2024</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 11 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/mahsing-terra-1.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_11_view1.webp" alt="Mahsing Terra (1)" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Mahsing Terra (1)</h5>
+              <div class="project-footer">
+                <p class="project-meta">Malaysia | 2023</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 12 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/mahsing-terra-2.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_12_view1.webp" alt="Mahsing Terra (2)" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Mahsing Terra (2)</h5>
+              <div class="project-footer">
+                <p class="project-meta">Malaysia | 2023</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 13 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/tuju-apartment.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_13_view1.webp" alt="Tuju Apartment" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Tuju Apartment</h5>
+              <div class="project-footer">
+                <p class="project-meta">Malaysia | 2023</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 14 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/pkns-apartment.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_14_view1.webp" alt="PKNS Apartment" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>PKNS Apartment</h5>
+              <div class="project-footer">
+                <p class="project-meta">Malaysia | 2022</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 15 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/tuju-unit-apartment.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_15_view1.webp" alt="Tuju Unit Apartment" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Tuju Unit Apartment</h5>
+              <div class="project-footer">
+                <p class="project-meta">Malaysia | 2022</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 16 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/district-mall-ksa-2.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_16_view1.webp" alt="District Mall, KSA (2)" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>District Mall, KSA (2)</h5>
+              <div class="project-footer">
+                <p class="project-meta">Riyadh, KSA | 2024</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 17 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/anantara-apartment.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_17_view1.webp" alt="Anantara Apartment" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>Anantara Apartment</h5>
+              <div class="project-footer">
+                <p class="project-meta">Abu Dhabi, UAE | 2024</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3D Project 18 -->
+          <div class="project-card project-card-hidden" data-link="/portfolio/wct-mapple-apartment.html">
+            <div class="project-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/project_18_view1.webp" alt="WCT Mapple Apartment" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5>WCT Mapple Apartment</h5>
+              <div class="project-footer">
+                <p class="project-meta">Malaysia | 2022</p>
+                <span class="project-link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="show-more-wrapper" id="show-more-3d-wrapper">
+          <button class="show-more-btn" id="show-more-3d-btn">Show More</button>
+        </div>
+      </section>
+
+      <!-- Applied AI Engineering Projects -->
+      <section class="portfolio-section reveal-anim delay-2" id="section-ai">
+        <div class="section-header-ai">
+          <span class="dot-blue"></span>
+          <h4>Applied AI Engineering</h4>
+        </div>
+
+        <div class="portfolio-grid-ai">
+          <!-- AI Project 1 -->
+          <div class="project-card">
+            <div class="project-img-wrapper ai-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/ai_doc_assistant.webp" alt="Evormalux webapp" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5><a href="#" class="project-title-link ai-link">Evormalux</a></h5>
+              <p>landing page of An AI-powered web application for image enhancement and editing.</p>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="tag-pill">React</span>
+                  <span class="tag-pill">Python</span>
+                  <span class="tag-pill">OpenAI</span>
+                </div>
+                <a href="#" class="project-link-btn" aria-label="View Project"><i
+                    class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- AI Project 2 -->
+          <div class="project-card">
+            <div class="project-img-wrapper ai-img-wrapper">
+              <img src="/portfolioweb/images/thumbs/ai_code_agent.webp" alt="Evormaworkspace" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-info">
+              <h5><a href="#" class="project-title-link ai-link">Evormaworkspace</a></h5>
+              <p>Workspace of AI powered webapp of evormalux</p>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="tag-pill">Rust</span>
+                  <span class="tag-pill">Llama.cpp</span>
+                  <span class="tag-pill">CLI</span>
+                </div>
+                <a href="#" class="project-link-btn" aria-label="View Project"><i
+                    class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="show-more-wrapper">
+          <button class="show-more-btn">Show More</button>
+        </div>
+      </section>
+
+
+
+    </div>
+  </main>
+
+</body>
+
+</html>
