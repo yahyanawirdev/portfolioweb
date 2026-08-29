@@ -196,6 +196,37 @@ function resolveAssetUrl(url) {
   return basePath + clean;
 }
 
+function ensureFavicons() {
+  const basePath = getAppBasePath();
+  const icoUrl = basePath + '/favicon.ico';
+  const pngUrl = basePath + '/apple-touch-icon.png';
+
+  let icon = document.querySelector("link[rel='icon']");
+  if (!icon) {
+    icon = document.createElement('link');
+    icon.rel = 'icon';
+    document.head.appendChild(icon);
+  }
+  icon.type = 'image/x-icon';
+  icon.href = icoUrl;
+
+  let shortcut = document.querySelector("link[rel='shortcut icon']");
+  if (!shortcut) {
+    shortcut = document.createElement('link');
+    shortcut.rel = 'shortcut icon';
+    document.head.appendChild(shortcut);
+  }
+  shortcut.href = icoUrl;
+
+  let apple = document.querySelector("link[rel='apple-touch-icon']");
+  if (!apple) {
+    apple = document.createElement('link');
+    apple.rel = 'apple-touch-icon';
+    document.head.appendChild(apple);
+  }
+  apple.href = pngUrl;
+}
+
 function updateNavActiveState(url) {
   const targetPath = resolvePageUrl(url);
   const navBtns = document.querySelectorAll('.nav-btn');
@@ -617,12 +648,14 @@ async function loadPage(url) {
 }
 
 if (document.readyState !== 'loading') {
+  ensureFavicons();
   ensureGlobalNavbar();
   syncSocialLinksFromIndex();
   initInteractiveViewer();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  ensureFavicons();
   ensureGlobalNavbar();
   syncSocialLinksFromIndex();
   initSlideshow();
