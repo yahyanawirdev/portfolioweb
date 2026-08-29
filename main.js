@@ -599,6 +599,22 @@ function initInteractiveViewer() {
   ensureInteractiveModal();
 }
 
+function initImageFadeIn() {
+  const images = document.querySelectorAll('.project-img-wrapper img, .project-img-slot img');
+  images.forEach(img => {
+    if (img.complete && img.naturalWidth > 0) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', () => {
+        img.classList.add('loaded');
+      }, { once: true });
+      img.addEventListener('error', () => {
+        img.classList.add('loaded');
+      }, { once: true });
+    }
+  });
+}
+
 async function loadPage(url) {
   try {
     let text;
@@ -644,6 +660,7 @@ async function loadPage(url) {
       initAnimations();
       initTypewriter();
       initInteractiveViewer();
+      initImageFadeIn();
       
       // Trigger enter animation
       newMain.classList.add('page-transition-enter');
@@ -663,6 +680,7 @@ if (document.readyState !== 'loading') {
   ensureGlobalNavbar();
   syncSocialLinksFromIndex();
   initInteractiveViewer();
+  initImageFadeIn();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -673,6 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
   initTypewriter();
   initInteractiveViewer();
+  initImageFadeIn();
   
   // Initialize nav state based on current URL
   const initialPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -783,10 +802,12 @@ document.addEventListener('click', (e) => {
     const hiddenCards = Array.from(grid.querySelectorAll('.project-card.project-card-hidden'));
     const toReveal = hiddenCards.slice(0, CARDS_PER_ROW);
 
-    toReveal.forEach(card => {
+    toReveal.forEach((card, idx) => {
       card.classList.remove('project-card-hidden');
       card.classList.add('card-revealed');
+      card.style.animationDelay = `${idx * 0.08}s`;
     });
+    initImageFadeIn();
 
     // Check if any hidden cards remain
     const remainingHidden = grid.querySelectorAll('.project-card.project-card-hidden');
