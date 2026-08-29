@@ -180,6 +180,22 @@ function resolvePageUrl(rawUrl) {
   }
 }
 
+function resolveAssetUrl(url) {
+  if (!url) return '';
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:') || url.startsWith('blob:')) {
+    return url;
+  }
+  const basePath = getAppBasePath();
+  let clean = url;
+  if (basePath && clean.startsWith(basePath)) {
+    clean = clean.substring(basePath.length);
+  }
+  if (!clean.startsWith('/')) {
+    clean = '/' + clean;
+  }
+  return basePath + clean;
+}
+
 function updateNavActiveState(url) {
   const targetPath = resolvePageUrl(url);
   const navBtns = document.querySelectorAll('.nav-btn');
@@ -404,7 +420,7 @@ function ensureInteractiveModal() {
   }
 
   function openModal(src, alt) {
-    modalImg.src = src;
+    modalImg.src = resolveAssetUrl(src);
     modalImg.alt = alt || 'Visualization view';
     resetTransform();
     modal.classList.add('active');
@@ -522,8 +538,14 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
     const img = slot.querySelector('img');
-    const src = slot.getAttribute('data-src') || (img ? img.src : '');
-    const alt = slot.getAttribute('data-alt') || (img ? img.alt : '');
+    let src = '';
+    if (img && (img.currentSrc || img.src)) {
+      src = img.currentSrc || img.src;
+    } else {
+      src = slot.getAttribute('data-src') || '';
+    }
+    src = resolveAssetUrl(src);
+    const alt = (img && img.alt) || slot.getAttribute('data-alt') || 'Visualization view';
     if (src) {
       const viewer = ensureInteractiveModal();
       viewer.openModal(src, alt);
