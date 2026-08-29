@@ -343,37 +343,55 @@ async function syncSocialLinksFromIndex() {
 }
 
 // --- Global Shell & Navbar Auto-Injection for Project Detail Pages ---
+let isInjectingNavbar = false;
+
 async function ensureGlobalNavbar() {
-  let nav = document.getElementById('sidebar-nav');
+  // 1. Remove duplicate navbars if more than one exists in the DOM
+  const existingNavs = document.querySelectorAll('#sidebar-nav, .floating-nav');
+  if (existingNavs.length > 1) {
+    for (let i = 1; i < existingNavs.length; i++) {
+      existingNavs[i].remove();
+    }
+  }
+
+  let nav = document.getElementById('sidebar-nav') || document.querySelector('.floating-nav');
+  if (nav) {
+    updateNavActiveState(window.location.pathname);
+    return;
+  }
+
+  if (isInjectingNavbar) return;
+  isInjectingNavbar = true;
+
   const isSubfolder = window.location.pathname.includes('/portfolio/') || window.location.pathname.includes('/blog/');
   const rootPrefix = isSubfolder ? '../' : '';
 
-  if (!nav) {
-    try {
-      let html = pageCache['index.html'];
-      if (!html) {
-        const res = await fetch(rootPrefix + 'index.html?t=' + Date.now());
-        html = await res.text();
-      }
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const srcNav = doc.getElementById('sidebar-nav');
-      if (srcNav) {
-        nav = srcNav.cloneNode(true);
-        if (isSubfolder) {
-          // Adjust links for subfolder pages
-          nav.querySelectorAll('[data-link]').forEach(btn => {
-            const link = btn.getAttribute('data-link');
-            if (link && !link.startsWith('http') && !link.startsWith('../')) {
-              btn.setAttribute('data-link', '../' + link);
-            }
-          });
-        }
-        document.body.prepend(nav);
-      }
-    } catch (err) {
-      console.warn('Could not inject global navbar:', err);
+  try {
+    let html = pageCache['index.html'];
+    if (!html) {
+      const res = await fetch(rootPrefix + 'index.html?t=' + Date.now());
+      html = await res.text();
     }
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const srcNav = doc.getElementById('sidebar-nav');
+    if (srcNav && !document.getElementById('sidebar-nav') && !document.querySelector('.floating-nav')) {
+      nav = srcNav.cloneNode(true);
+      if (isSubfolder) {
+        // Adjust links for subfolder pages
+        nav.querySelectorAll('[data-link]').forEach(btn => {
+          const link = btn.getAttribute('data-link');
+          if (link && !link.startsWith('http') && !link.startsWith('../')) {
+            btn.setAttribute('data-link', '../' + link);
+          }
+        });
+      }
+      document.body.prepend(nav);
+    }
+  } catch (err) {
+    console.warn('Could not inject global navbar:', err);
+  } finally {
+    isInjectingNavbar = false;
   }
 
   // Ensure correct active button highlighting
@@ -416,10 +434,13 @@ function ensureInteractiveModal() {
         <img id="modal-img" class="modal-img" src="" alt="Fullscreen visualization" draggable="false" />
       </div>
       <div class="zoom-toolbar">
-        <button id="btn-zoom-out" class="zoom-btn" title="Zoom out (Middle wheel down)"><i class="fas fa-minus"></i></button>
+        <button id="btn-zoom-out" class="zoom-btn" title="Zoom out"><i class="fas fa-minus"></i></button>
         <div id="zoom-readout" class="zoom-readout" title="Click to reset (100%)">100%</div>
-        <button id="btn-zoom-in" class="zoom-btn" title="Zoom in (Middle wheel up)"><i class="fas fa-plus"></i></button>
-        <span class="zoom-help-text">Scroll middle cursor to zoom up to 500% &bull; Drag to pan</span>
+        <button id="btn-zoom-in" class="zoom-btn" title="Zoom in"><i class="fas fa-plus"></i></button>
+        <span class="zoom-help-text">
+          <span class="zoom-help-desktop">Scroll middle cursor to zoom up to 500% &bull; Drag to pan</span>
+          <span class="zoom-help-mobile">Pinch or tap &plusmn; to zoom</span>
+        </span>
       </div>
     `;
     document.body.appendChild(modal);
@@ -532,6 +553,50 @@ function ensureInteractiveModal() {
     if (isDragging) {
       isDragging = false;
       modalViewport.classList.remove('dragging');
+      applyTransform();
+    }
+  });
+
+  // Touch gesture support for mobile pinch-to-zoom and drag
+  let touchStartDist = 0;
+  let touchStartScale = 1;
+
+  modalViewport.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1 && scale > 1.0) {
+      isDragging = true;
+      dragStartX = e.touches[0].clientX;
+      dragStartY = e.touches[0].clientY;
+      initialPanX = panX;
+      initialPanY = panY;
+    } else if (e.touches.length === 2) {
+      isDragging = false;
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      touchStartDist = Math.hypot(dx, dy);
+      touchStartScale = scale;
+    }
+  }, { passive: true });
+
+  modalViewport.addEventListener('touchmove', (e) => {
+    if (isDragging && e.touches.length === 1) {
+      panX = initialPanX + (e.touches[0].clientX - dragStartX);
+      panY = initialPanY + (e.touches[0].clientY - dragStartY);
+      applyTransform();
+    } else if (e.touches.length === 2 && touchStartDist > 0) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      const dist = Math.hypot(dx, dy);
+      const factor = dist / touchStartDist;
+      scale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, touchStartScale * factor));
+      if (scale <= 1.0) { panX = 0; panY = 0; }
+      applyTransform();
+    }
+  }, { passive: true });
+
+  modalViewport.addEventListener('touchend', (e) => {
+    if (e.touches.length === 0) {
+      isDragging = false;
+      touchStartDist = 0;
       applyTransform();
     }
   });

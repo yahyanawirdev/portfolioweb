@@ -52,6 +52,12 @@ body {
   z-index: 100;
 }
 
+/* Fail-safe: Never render duplicate navbars */
+.floating-nav ~ .floating-nav,
+#sidebar-nav ~ #sidebar-nav {
+  display: none !important;
+}
+
 .nav-btn {
   background: transparent;
   border: none;
@@ -59,6 +65,10 @@ body {
   font-size: 20px;
   width: 45px;
   height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   cursor: pointer;
   transition: all var(--transition-speed) ease;
@@ -360,11 +370,32 @@ body {
     transform: none;
     flex-direction: row;
     justify-content: center;
-    border-radius: 20px;
-    padding: 10px;
-    margin-bottom: 10px;
+    align-items: center;
+    border-radius: 30px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    max-width: 680px;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
   
+  .floating-nav::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .nav-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    font-size: 16px;
+  }
+
   .portfolio-card {
     margin-left: 0;
     max-width: 100%;
@@ -374,8 +405,9 @@ body {
 
   .nav-divider {
     width: 1px;
-    height: 30px;
-    margin: 5px;
+    height: 22px;
+    margin: 0 4px;
+    flex-shrink: 0;
   }
   
   .info-section {
@@ -817,6 +849,7 @@ body {
   padding: 5px 0;
   position: relative;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .filter-btn::after {
@@ -1162,6 +1195,58 @@ body {
   .portfolio-grid-ai, .portfolio-grid-3d {
     grid-template-columns: 1fr;
   }
+
+  .filters-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .filter-divider-line {
+    display: none;
+  }
+
+  .portfolio-filters-inline {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  .portfolio-filters-inline::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    white-space: nowrap;
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background-color: #f3f3f3;
+    color: #555;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn::after {
+    display: none;
+  }
+
+  .filter-btn:hover {
+    background-color: #eaeaea;
+    color: #111;
+  }
+
+  .filter-btn.active-filter {
+    background-color: #111111;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
 }
 
 /* =======================================================
@@ -1310,6 +1395,10 @@ body {
   white-space: nowrap;
 }
 
+.zoom-help-mobile {
+  display: none;
+}
+
 /* =======================================================
    PROJECT DETAIL PAGE & CARD STYLES
    ======================================================= */
@@ -1370,6 +1459,10 @@ body {
 .project-close-btn {
   width: 28px;
   height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: #f4f4f4;
   border: 1px solid #e2e2e2;
@@ -1479,13 +1572,96 @@ body {
 
 @media (max-width: 768px) {
   .project-detail-header {
-    padding: 16px 18px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 16px 12px 16px;
+    gap: 6px;
+    text-align: center;
+  }
+  .project-detail-header .header-right {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .project-detail-header .header-left {
+    order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
   .project-detail-title {
     font-size: 1.15rem;
+    line-height: 1.25;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+  .project-detail-meta {
+    font-size: 0.62rem;
+    color: #666666;
+    gap: 5px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .meta-separator {
+    color: #cccccc;
+    font-size: 0.55rem;
+  }
+  .project-close-btn {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    min-height: 26px;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+    font-size: 11px;
   }
   .project-detail-footer {
     padding: 18px;
+  }
+
+  /* Fullscreen viewer zoom toolbar mobile responsive */
+  .zoom-help-desktop {
+    display: none;
+  }
+  .zoom-help-mobile {
+    display: inline;
+  }
+  .zoom-toolbar {
+    bottom: 18px;
+    max-width: calc(100vw - 28px);
+    width: max-content;
+    padding: 6px 12px;
+    gap: 8px;
+    border-radius: 25px;
+    box-sizing: border-box;
+  }
+  .zoom-btn {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+  }
+  .zoom-readout {
+    font-size: 0.76rem;
+    min-width: 40px;
+    padding: 2px 4px;
+    flex-shrink: 0;
+  }
+  .zoom-help-text {
+    font-size: 0.68rem;
+    padding-left: 8px;
+    white-space: nowrap;
   }
 }
 
