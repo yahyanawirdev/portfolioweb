@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobha Central | Architectural 3D Visualization</title>
+  <meta name="description"
+    content="Sobha Central architectural 3D visualization by Muhammad Yahya Nawir. PNC Architect, Senior 3D Visualizer, 2026." />
+
+  <!-- Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+  <!-- Main Content Card (Center Project Detail View) -->
+  <main class="portfolio-card scrollable-content resume-card project-detail-card" id="main-content">
+
+    <!-- Top Header Bar -->
+    <header class="project-detail-header">
+      <div class="header-left">
+        <h1 class="project-detail-title">Sobha Central</h1>
+      </div>
+      <div class="header-right">
+        <div class="project-detail-meta">
+          <span>PNC Architect</span>
+          <span class="meta-separator">|</span>
+          <span>Senior 3D Visualizer</span>
+          <span class="meta-separator">|</span>
+          <span>2026</span>
+        </div>
+        <!-- Close Button returning back to Portfolio Grid -->
+        <a href="/portfolio.html" data-link="/portfolio.html" class="project-close-btn" title="Back to Portfolio" aria-label="Back to Portfolio">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- Stacked Images Showcase (Touching edge-to-edge) -->
+    <div class="project-images-showcase">
+      <!-- 1st Image View -->
+      <div class="project-img-slot" data-src="/images/project_2_view1.JPG"
+        data-alt="Sobha Central - Elevated Pool Deck View">
+        <img src="/images/project_2_view1.JPG" alt="Sobha Central - Elevated Pool Deck View" />
+        <div class="zoom-hint-badge">
+          <i class="fas fa-search-plus"></i> Click to zoom
+        </div>
+      </div>
+
+      <!-- 2nd Image View -->
+      <div class="project-img-slot" data-src="/images/project_2_view2.JPG"
+        data-alt="Sobha Central - City Skyline Pool Lounge View">
+        <img src="/images/project_2_view2.JPG" alt="Sobha Central - City Skyline Pool Lounge View" />
+        <div class="zoom-hint-badge">
+          <i class="fas fa-search-plus"></i> Click to zoom
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Project Description -->
+    <footer class="project-detail-footer">
+      <p class="project-detail-desc">
+        An elevated oasis framed through cinematic viewpoints, this visualization captures a refined lifestyle suspended above the city. Carefully orchestrated camera angles, layered compositions, warm evening lighting, and human interactions reinforce a sense of scale and immersion. High-detail 3D modeling, photorealistic materials, atmospheric rendering, CGI, and subtle post-production elevate the imagery into a compelling visual narrative.
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Global Application Logic & Auto-Shell Controller -->
+  <script type="module" src="/main.js"></script>
+
+</body>
+
+</html>

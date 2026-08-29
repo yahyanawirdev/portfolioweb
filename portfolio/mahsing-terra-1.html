@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahsing Terra (1) | Architectural 3D Visualization</title>
+  <meta name="description" content="Mahsing Terra (1) architectural 3D visualization by Muhammad Yahya Nawir." />
+
+  <!-- Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Global Stylesheet & Layout Extensions -->
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/project-layouts.css" />
+</head>
+
+<body>
+
+  <!-- Main Content Card (Center Project Detail View) -->
+  <main class="portfolio-card scrollable-content resume-card project-detail-card" id="main-content">
+
+    <!-- Top Header Bar -->
+    <header class="project-detail-header">
+      <div class="header-left">
+        <h1 class="project-detail-title">Mahsing Terra (1)</h1>
+      </div>
+      <div class="header-right">
+        <div class="project-detail-meta">
+          <span>Pitrees Sdn Bhd</span>
+          <span class="meta-separator">|</span>
+          <span>3D Visualizer</span>
+          <span class="meta-separator">|</span>
+          <span>2023</span>
+        </div>
+        <!-- Close Button returning back to Portfolio Grid -->
+        <a href="/portfolio.html" data-link="/portfolio.html" class="project-close-btn" title="Back to Portfolio" aria-label="Back to Portfolio">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- Stacked Images Showcase (1 Hero Top + 2-Column Grid Bottom) -->
+    <div class="project-images-showcase">
+      <!-- 1st Image View (Top Hero Full Width) -->
+      <div class="project-img-slot" data-src="/images/project_11_view1.jpg"
+        data-alt="Mahsing Terra - Hero High-Rise Residential Aerial View">
+        <img src="/images/project_11_view1.jpg" alt="Mahsing Terra - Hero High-Rise Residential Aerial View" />
+        <div class="zoom-hint-badge">
+          <i class="fas fa-search-plus"></i> Click to zoom
+        </div>
+      </div>
+
+      <!-- Bottom 2-Image Grid Row (Views 2 & 3 side-by-side) -->
+      <div class="project-images-grid-2col">
+        <!-- 2nd Image View (Bottom Left) -->
+        <div class="project-img-slot" data-src="/images/project_11_view2.jpg"
+          data-alt="Mahsing Terra - Horizon Lap Pool & Lounge Deck View">
+          <img src="/images/project_11_view2.jpg" alt="Mahsing Terra - Horizon Lap Pool & Lounge Deck View" />
+          <div class="zoom-hint-badge">
+            <i class="fas fa-search-plus"></i> Click to zoom
+          </div>
+        </div>
+
+        <!-- 3rd Image View (Bottom Right) -->
+        <div class="project-img-slot" data-src="/images/project_11_view3.jpg"
+          data-alt="Mahsing Terra - Podium Garden & Serpentine Lagoon View">
+          <img src="/images/project_11_view3.jpg" alt="Mahsing Terra - Podium Garden & Serpentine Lagoon View" />
+          <div class="zoom-hint-badge">
+            <i class="fas fa-search-plus"></i> Click to zoom
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Project Description -->
+    <footer class="project-detail-footer">
+      <p class="project-detail-desc">
+        A high-rise residential composition driven by vertical tension, layered greenery, and a strong relationship to its urban context. Crisp daylight rakes across the façade, giving glazing, metal accents, and concrete volumes controlled tonal separation and believable depth. The elevated camera creates a clear hero perspective, while the pool deck and sports court introduce human scale and lifestyle cues. Subtle atmospheric perspective, restrained grading, refined reflections, and selective sharpening complete a clean editorial finish.
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Global Application Logic & Auto-Shell Controller -->
+  <script type="module" src="/main.js"></script>
+
+</body>
+
+</html>

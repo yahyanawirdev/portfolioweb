@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tuju Apartment | Architectural 3D Visualization</title>
+  <meta name="description" content="Tuju Apartment architectural 3D visualization by Muhammad Yahya Nawir." />
+
+  <!-- Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Global Stylesheet & Layout Extensions -->
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/project-layouts.css" />
+</head>
+
+<body>
+
+  <!-- Main Content Card (Center Project Detail View) -->
+  <main class="portfolio-card scrollable-content resume-card project-detail-card" id="main-content">
+
+    <!-- Top Header Bar -->
+    <header class="project-detail-header">
+      <div class="header-left">
+        <h1 class="project-detail-title">Tuju Apartment</h1>
+      </div>
+      <div class="header-right">
+        <div class="project-detail-meta">
+          <span>Pitrees Sdn Bhd</span>
+          <span class="meta-separator">|</span>
+          <span>3D Visualizer</span>
+          <span class="meta-separator">|</span>
+          <span>2023</span>
+        </div>
+        <!-- Close Button returning back to Portfolio Grid -->
+        <a href="/portfolio.html" data-link="/portfolio.html" class="project-close-btn" title="Back to Portfolio" aria-label="Back to Portfolio">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- Stacked Images Showcase (3-Row 7-Image Layout: 2 + 2 + 3) -->
+    <div class="project-images-showcase">
+      <!-- 1st Row: 2 Aerial Perspective Views -->
+      <div class="project-images-grid-2col">
+        <!-- 1st Image View -->
+        <div class="project-img-slot" data-src="/images/project_13_view1.jpg"
+          data-alt="Tuju Apartment - Tower Corner Aerial Perspective View">
+          <img src="/images/project_13_view1.jpg" alt="Tuju Apartment - Tower Corner Aerial Perspective View" />
+          <div class="zoom-hint-badge">
+            <i class="fas fa-search-plus"></i> Click to zoom
+          </div>
+        </div>
+
+        <!-- 2nd Image View -->
+        <div class="project-img-slot" data-src="/images/project_13_view2.jpg"
+          data-alt="Tuju Apartment - Podium Pool Deck & Tower Aerial View">
+          <img src="/images/project_13_view2.jpg" alt="Tuju Apartment - Podium Pool Deck & Tower Aerial View" />
+          <div class="zoom-hint-badge">
+            <i class="fas fa-search-plus"></i> Click to zoom
+          </div>
+        </div>
+      </div>
+
+      <!-- 2nd Row: 2 Ground / Amenity Views -->
+      <div class="project-images-grid-2col">
+        <!-- 3rd Image View -->
+        <div class="project-img-slot" data-src="/images/project_13_view3.jpg"
+          data-alt="Tuju Apartment - Grand Lobby & Reception Lounge View">
+          <img src="/images/project_13_view3.jpg" alt="Tuju Apartment - Grand Lobby & Reception Lounge View" />
+          <div class="zoom-hint-badge">
+            <i class="fas fa-search-plus"></i> Click to zoom
+          </div>
+        </div>
+
+        <!-- 4th Image View -->
+        <div class="project-img-slot" data-src="/images/project_13_view4.jpg"
+          data-alt="Tuju Apartment - Glamping Garden & Fire Pit Landscape View">
+          <img src="/images/project_13_view4.jpg" alt="Tuju Apartment - Glamping Garden & Fire Pit Landscape View" />
+          <div class="zoom-hint-badge">
+            <i class="fas fa-search-plus"></i> Click to zoom
+          </div>
+        </div>
+      </div>
+
+      <!-- 3rd Row: 3 Facilities Views (Pool, Court, Kids Play) -->
+      <div class="project-images-grid-3col">
+        <!-- 5th Image View -->
+        <div class="project-img-slot" data-src="/images/project_13_view5.jpg"
+          data-alt="Tuju Apartment - Lap Pool & Clubhouse View">
+          <img src="/images/project_13_view5.jpg" alt="Tuju Apartment - Lap Pool & Clubhouse View" />
+          <div class="zoom-hint-badge">
+            <i class="fas fa-search-plus"></i> Click to zoom
+          </div>
+        </div>
+
+        <!-- 6th Image View -->
+        <div class="project-img-slot" data-src="/images/project_13_view6.jpg"
+          data-alt="Tuju Apartment - Sports Court & Sky Garden View">
+          <img src="/images/project_13_view6.jpg" alt="Tuju Apartment - Sports Court & Sky Garden View" />
+          <div class="zoom-hint-badge">
+            <i class="fas fa-search-plus"></i> Click to zoom
+          </div>
+        </div>
+
+        <!-- 7th Image View -->
+        <div class="project-img-slot" data-src="/images/project_13_view7.jpg"
+          data-alt="Tuju Apartment - Kids Splash Pool & Water Play View">
+          <img src="/images/project_13_view7.jpg" alt="Tuju Apartment - Kids Splash Pool & Water Play View" />
+          <div class="zoom-hint-badge">
+            <i class="fas fa-search-plus"></i> Click to zoom
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Project Description -->
+    <footer class="project-detail-footer">
+      <p class="project-detail-desc">
+        A refined architectural visualization built around a cinematic composition and a sense of place. Soft daylight and warm highlights shape the towers, creating depth through layered shadows and atmospheric perspective. Facades balance glass, metal and concrete with subtle roughness and tonal variation for believable material response. The landscape adds scale and narrative, while framed views establish hierarchy. A restrained post-production grade unifies color, exposure, atmosphere and detail for a polished photographic finish.
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Global Application Logic & Auto-Shell Controller -->
+  <script type="module" src="/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+/* ==========================================================================
+   PROJECT LAYOUTS EXTENSION (Multi-Image Showcase Grid Variants)
+   ========================================================================== */
+
+/* 2-Column Grid Row for multi-image presentations (e.g. 1 Hero Top + 2 Sub-views Bottom) */
+.project-images-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 0; /* Seamless edge-to-edge presentation matching showcase aesthetic */
+  line-height: 0;
+  background-color: #f6f6f6;
+}
+
+.project-images-grid-2col .project-img-slot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+}
+
+.project-images-grid-2col .project-img-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease;
+}
+
+/* Subtle separator line between side-by-side images if desired */
+.project-images-grid-2col .project-img-slot:first-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile responsive fallback: stack on narrow screens */
+@media (max-width: 540px) {
+  .project-images-grid-2col {
+    grid-template-columns: 1fr;
+  }
+  .project-images-grid-2col .project-img-slot:first-child {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ==========================================================================
+   Asymmetric 2-Column Grid: Left image wider (~64%) than right image (~36%)
+   Matching architectural layout of Mahsing Terra (2) / Project 12
+   ========================================================================== */
+.project-images-grid-wide-left {
+  display: grid;
+  grid-template-columns: 1.75fr 1fr;
+  width: 100%;
+  aspect-ratio: 68 / 30; /* Maintains matched height at ~300px on 680px card */
+  gap: 0;
+  line-height: 0;
+  background-color: #f6f6f6;
+}
+
+.project-images-grid-wide-left .project-img-slot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+}
+
+.project-images-grid-wide-left .project-img-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease;
+}
+
+.project-images-grid-wide-left .project-img-slot:first-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 540px) {
+  .project-images-grid-wide-left {
+    grid-template-columns: 1fr;
+    aspect-ratio: auto;
+  }
+  .project-images-grid-wide-left .project-img-slot:first-child {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ==========================================================================
+   3-Column Grid: 3 images side-by-side (Row 3 of 7-Image Layout / Tuju Apartment)
+   ========================================================================== */
+.project-images-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 0;
+  line-height: 0;
+  background-color: #f6f6f6;
+}
+
+.project-images-grid-3col .project-img-slot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+}
+
+.project-images-grid-3col .project-img-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease;
+}
+
+.project-images-grid-3col .project-img-slot:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 540px) {
+  .project-images-grid-3col {
+    grid-template-columns: 1fr;
+  }
+  .project-images-grid-3col .project-img-slot:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ==========================================================================
+   2x2 Quad Grid: 4 images in 2 rows of 2 (Anantara Apartment / Project 17)
+   ========================================================================== */
+.project-images-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 0;
+  line-height: 0;
+  background-color: #f6f6f6;
+}
+
+.project-images-grid-2x2 .project-img-slot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+}
+
+.project-images-grid-2x2 .project-img-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease;
+}
+
+.project-images-grid-2x2 .project-img-slot:nth-child(odd) {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 540px) {
+  .project-images-grid-2x2 {
+    grid-template-columns: 1fr;
+  }
+  .project-images-grid-2x2 .project-img-slot:nth-child(odd) {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}

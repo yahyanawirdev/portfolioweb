@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From CAD Precision to Latent Speed: Integrating ComfyUI with 3ds Max and Blender | Muhammad Yahya Nwr</title>
+  <meta name="description"
+    content="A practical technical blueprint showing how architectural visualizers can preserve exact millimeter BIM/CAD geometry while using generative models." />
+
+  <!-- Fonts: Inter & Viga -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Viga&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+  <!-- Main Content (Blog Article Detail View) -->
+  <main class="portfolio-card scrollable-content blog-card blog-article-card" id="main-content">
+    <div class="blog-container">
+
+      <!-- Top Section (Above Horizontal Separator) -->
+      <header class="blog-article-header">
+        <a href="/blog.html" data-link="/blog.html" class="blog-back-btn">
+          <i class="fas fa-arrow-left"></i> Back to all articles
+        </a>
+        <h1 class="blog-article-title">From CAD Precision to Latent Speed: Integrating ComfyUI with 3ds Max and Blender</h1>
+        <div class="blog-article-meta">
+          <span class="highlight-olive">PIPELINE INTEGRATION</span>
+          <span>&bull;</span>
+          <span>November 14, 2025</span>
+          <span>&bull;</span>
+          <span>6 MIN READ</span>
+        </div>
+      </header>
+
+      <!-- Horizontal Line Separator -->
+      <hr class="blog-divider" />
+
+      <!-- Article Content (Below Horizontal Separator) -->
+      <article class="blog-article-body">
+        <p class="blog-lede">
+          The biggest hesitation architects express regarding generative AI is structural accuracy. "AI looks impressive, but the stairs don't connect to the floor slab, and the curtain wall mullions are curved." This critique is 100% justified when using unconstrained text prompts. However, when we establish a rigorous multi-pass ControlNet pipeline between 3ds Max or Blender and ComfyUI, that limitation disappears entirely.
+        </p>
+
+        <h2>The Bridge: Depth, Normals, and Segmentation</h2>
+        <p>
+          The secret to bridging architectural CAD precision with generative latent speed lies in spatial conditioning. Rather than expecting a diffusion model to guess the 3D world from scratch, we supply it with deterministic mathematical constraints directly exported from our 3D software:
+        </p>
+
+        <ul>
+          <li><strong>Z-Depth Buffer:</strong> Encodes the exact distance of every architectural plane from the virtual camera lens, eliminating perspective distortion.</li>
+          <li><strong>World Normal Pass:</strong> Maps surface orientations (RGB mapping for XYZ vectors), ensuring that exterior facades, soffits, and paving stones receive correct anisotropic lighting.</li>
+          <li><strong>Semantic Segmentation Masks:</strong> Assigns distinct color IDs to glass, stone, concrete, vegetation, and sky, giving us surgical prompt isolation across materials.</li>
+        </ul>
+
+        <blockquote>
+          <p>"ControlNet doesn't alter your building's geometry; it wraps high-frequency photorealistic detail around your existing structural mesh."</p>
+        </blockquote>
+
+        <h2>The Production Blueprint: Node by Node</h2>
+        <p>Here is the exact production architecture I deploy for architectural visualization projects:</p>
+
+        <ol>
+          <li><strong>Fast 3D Viewport Extraction:</strong> In 3ds Max or Blender, set up the approved architectural model. Export a draft render along with Depth, LineArt/Canny, and Normal passes. This step takes less than 2 minutes.</li>
+          <li><strong>ComfyUI Ingestion:</strong> Load the passes into a custom ComfyUI graph utilizing Flux or SDXL checkpoints.</li>
+          <li><strong>Multi-ControlNet Layering:</strong>
+            <ul>
+              <li><em>Depth Model (Weight: 0.85):</em> Preserves volumetric room proportions and architectural massing.</li>
+              <li><em>Canny / LineArt (Weight: 0.65):</em> Locks down window frames, balustrade railings, and façade joints.</li>
+              <li><em>Normal Map (Weight: 0.50):</em> Directs surface bump and highlights matching the original sunlight key.</li>
+            </ul>
+          </li>
+          <li><strong>Regional Conditioning &amp; Prompting:</strong> Using segmentation masks, inject specific prompt descriptors: <em>"fluted natural travertine stone, micro-surface porous texture, ultra-high definition"</em> for walls, and <em>"low-iron reflective architectural double-glazing"</em> for windows.</li>
+        </ol>
+
+        <div class="blog-callout-box">
+          <div class="blog-callout-title"><i class="fas fa-network-wired"></i> Workflow Benefit</div>
+          <p>Clients can modify materials, sky conditions, and vegetation themes in real-time during design workshops without waiting for overnight render calculations.</p>
+        </div>
+
+        <h2>Eliminating the "AI Plastic" Look</h2>
+        <p>
+          A common giveaway of amateur AI imagery is the overly smooth, waxy finish on surfaces. To counter this, our pipeline utilizes a low-denoise tiled k-diffusion pass combined with custom photographic noise models. By adding genuine optical grain and preserving raw 3D ambient occlusion shadows, the final image is indistinguishable from an authentic, high-end Corona render.
+        </p>
+
+        <h2>Summary</h2>
+        <p>
+          Integrating ComfyUI with 3ds Max and Blender does not replace the traditional 3D artist; it supercharges them. It allows visualizers to honor the precision of architectural blueprints while unlocking the speed and visual richness of modern AI computing.
+        </p>
+
+        <div class="blog-article-footer">
+          <a href="/blog.html" data-link="/blog.html" class="blog-back-btn">
+            <i class="fas fa-arrow-left"></i> Back to all articles
+          </a>
+          <span style="font-size: 0.8rem; color: #888;">Published by Muhammad Yahya Nawir</span>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
