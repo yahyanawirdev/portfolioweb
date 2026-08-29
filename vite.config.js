@@ -46,11 +46,13 @@ function getHtmlEntries() {
   return entries;
 }
 
-export default defineConfig({
-  base: '/portfolioweb/',
-  build: {
-    rollupOptions: {
-      input: getHtmlEntries(),
+export default defineConfig(({ mode }) => {
+  return {
+    base: mode === 'production' ? '/portfolioweb/' : '/',
+    build: {
+      rollupOptions: {
+        input: getHtmlEntries(),
+      },
     },
-  },
+  };
 });

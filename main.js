@@ -198,16 +198,27 @@ function resolveAssetUrl(url) {
 
 function ensureFavicons() {
   const basePath = getAppBasePath();
+  const pngUrl = basePath + '/favicon.png';
   const icoUrl = basePath + '/favicon.ico';
-  const pngUrl = basePath + '/apple-touch-icon.png';
+  const appleUrl = basePath + '/apple-touch-icon.png';
 
-  let icon = document.querySelector("link[rel='icon']");
+  let pngIcon = document.querySelector("link[rel='icon'][type='image/png']");
+  if (!pngIcon) {
+    pngIcon = document.createElement('link');
+    pngIcon.rel = 'icon';
+    pngIcon.type = 'image/png';
+    pngIcon.setAttribute('sizes', '180x180');
+    document.head.appendChild(pngIcon);
+  }
+  pngIcon.href = pngUrl;
+
+  let icon = document.querySelector("link[rel='icon'][type='image/x-icon']");
   if (!icon) {
     icon = document.createElement('link');
     icon.rel = 'icon';
+    icon.type = 'image/x-icon';
     document.head.appendChild(icon);
   }
-  icon.type = 'image/x-icon';
   icon.href = icoUrl;
 
   let shortcut = document.querySelector("link[rel='shortcut icon']");
@@ -224,7 +235,7 @@ function ensureFavicons() {
     apple.rel = 'apple-touch-icon';
     document.head.appendChild(apple);
   }
-  apple.href = pngUrl;
+  apple.href = appleUrl;
 }
 
 function updateNavActiveState(url) {
