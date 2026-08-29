@@ -47,6 +47,7 @@ function getHtmlEntries() {
 }
 
 export default defineConfig({
+  base: '/portfolioweb/',
   build: {
     rollupOptions: {
       input: getHtmlEntries(),

@@ -144,13 +144,37 @@ function initTypewriter() {
   typeSequence();
 }
 
+function getAppBasePath() {
+  const p = window.location.pathname;
+  if (p.startsWith('/portfolioweb')) {
+    return '/portfolioweb';
+  }
+  return '';
+}
+
 function resolvePageUrl(rawUrl) {
-  if (!rawUrl) return '/index.html';
+  if (!rawUrl) return (getAppBasePath() + '/index.html');
   try {
-    const parsed = new URL(rawUrl, window.location.origin);
-    let p = parsed.pathname;
-    if (p === '/' || p === '') p = '/index.html';
-    return p;
+    const basePath = getAppBasePath();
+    let path = rawUrl;
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      const urlObj = new URL(path);
+      if (urlObj.origin === window.location.origin) {
+        path = urlObj.pathname;
+      } else {
+        return rawUrl;
+      }
+    }
+    if (basePath && path.startsWith(basePath)) {
+      path = path.substring(basePath.length);
+    }
+    if (!path.startsWith('/')) {
+      path = '/' + path;
+    }
+    if (path === '/' || path === '') {
+      path = '/index.html';
+    }
+    return basePath + path;
   } catch (e) {
     return rawUrl;
   }
